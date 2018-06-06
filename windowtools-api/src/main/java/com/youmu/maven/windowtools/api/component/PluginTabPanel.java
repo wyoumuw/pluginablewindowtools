@@ -29,7 +29,7 @@ public abstract class PluginTabPanel extends JPanel {
      * set Window size
      * @return
      */
-    public Dimension getPreferSize() {
+    public Dimension getExpectedSize() {
         return null;
     }
 }

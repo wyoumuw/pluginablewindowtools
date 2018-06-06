@@ -84,6 +84,7 @@
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
+                    <finalName>windowtools</finalName>
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
