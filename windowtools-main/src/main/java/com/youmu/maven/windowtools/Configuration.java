@@ -86,7 +86,7 @@ class Configuration {
             }
         }
         URLClassLoader urlClassLoader = new URLClassLoader(
-                urls.toArray(new URL[urls.size()]));
+                urls.toArray(new URL[urls.size()]),Thread.currentThread().getContextClassLoader());
         PathMatchingResourcePatternResolver resourceLoader = new PathMatchingResourcePatternResolver(
                 urlClassLoader);
         List<String> fullClassNames = Lists.newLinkedList();
@@ -182,6 +182,7 @@ class Configuration {
         for(Map.Entry<String, Class<? extends PluginTabPanel>> stringClassEntry : tabs
                 .entrySet()) {
             try {
+                Thread.currentThread().setContextClassLoader(stringClassEntry.getValue().getClassLoader());
                 Constructor constructor = stringClassEntry.getValue()
                         .getConstructor(Map.class);
                 map.put(stringClassEntry.getKey(),

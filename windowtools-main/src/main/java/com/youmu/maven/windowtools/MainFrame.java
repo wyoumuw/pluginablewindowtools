@@ -29,6 +29,9 @@ public class MainFrame extends JFrame {
 			tabPane.addTab(stringPluginTabPanelEntry.getKey(),
 					stringPluginTabPanelEntry.getValue());
 		}
+//		tabPane.addMouseWheelListener(event -> {
+//			System.out.println(event);
+//		});
 		add(tabPane);
 		// set tab change listener
 		tabPane.addChangeListener(event -> {
@@ -59,5 +62,7 @@ public class MainFrame extends JFrame {
 			setSize(configuration.getInitWindowWidth(),
 					configuration.getInitWindowHeight());
 		}
+
+		panel.onSelected();
 	}
 }
